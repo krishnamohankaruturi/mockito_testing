@@ -32,4 +32,8 @@ public class BookService {
         return total;
 
     }
+    public void addBook(Book book){
+        bookRepository.save(book);
+
+    }
 }

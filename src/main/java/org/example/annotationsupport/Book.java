@@ -1,12 +1,21 @@
 package org.example.annotationsupport;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Book {
     private String bookId;
     private String title;
     private int price;
     private LocalDate publishedDate;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return price == book.price && Objects.equals(bookId, book.bookId) && Objects.equals(title, book.title) && Objects.equals(publishedDate, book.publishedDate);
+    }
 
     public Book(String bookId, String title, int price, LocalDate publishedDate) {
         this.bookId = bookId;
